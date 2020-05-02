@@ -10,9 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: npm install
-        uses: actions/npm@v1
-        with:
-          args: install
+        run: npm install
       - name: serverless deploy
         uses: serverless/github-action@v1
         with:
