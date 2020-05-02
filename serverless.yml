@@ -1,4 +1,4 @@
-service: notes-app-api-v2
+service: notes-app-api
 
 # Create an optimized package for our functions
 package:
@@ -41,7 +41,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - "Fn::GetAtt": [NotesTable, Arn]
+        - "Fn::ImportValue": ${self:custom.stage}-ExtNotesTableArn
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
@@ -117,10 +117,3 @@ functions:
 resources:
   # API Gateway Errors
   - ${file(resources/api-gateway-errors.yml)}
-  # DynamoDB
-  - ${file(resources/dynamodb-table.yml)}
-  # S3
-  - ${file(resources/s3-bucket.yml)}
-  # Cognito
-  - ${file(resources/cognito-user-pool.yml)}
-  - ${file(resources/cognito-identity-pool.yml)}
