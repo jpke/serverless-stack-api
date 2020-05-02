@@ -12,7 +12,7 @@ jobs:
       - name: npm install
         run: npm install
       - name: serverless deploy
-        uses: serverless/github-action@v1
+        uses: serverless/github-action@master
         with:
           args: deploy -v
         env:
