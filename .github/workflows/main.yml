@@ -8,13 +8,13 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v1
       - name: npm install
-        uses: actions/npm@master
+        uses: actions/npm@v1
         with:
           args: install
       - name: serverless deploy
-        uses: serverless/github-action@master
+        uses: serverless/github-action@v1
         with:
           args: deploy -v
         env:
