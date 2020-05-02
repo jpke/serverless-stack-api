@@ -9,16 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: npm install
+      - name: Use Node.js
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
       - run: npm install
       - run: npm i -g serverless
       - name: serverless deploy
-        uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
         run: serverless deploy -v
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
