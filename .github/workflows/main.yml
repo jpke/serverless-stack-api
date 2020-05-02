@@ -11,10 +11,12 @@ jobs:
       - uses: actions/checkout@v1
       - name: npm install
         run: npm install
+      - name: install serverless
+        run: npm i -g serverless
       - name: serverless deploy
-        uses: serverless/github-action@master
         with:
           args: deploy -v
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
