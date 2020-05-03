@@ -112,7 +112,8 @@
         "iam:DeleteRole"
       ],
       "Resource": [
-        "arn:aws:iam::*:role/notes-app-*-us-east-1-lambdaRole"
+        "arn:aws:iam::*:role/notes-app-*-us-east-1-lambdaRole",
+        "arn:aws:iam::*:role/notes-app-*-CognitoAuthRole*"
       ]
     },
     {
