@@ -17,6 +17,8 @@ resources:
       Properties:
         # Generate a name based on the stage
         UserPoolName: ${self:custom.stage}-ext-user-pool
+        AdminCreateUserConfig:
+          AllowAdminCreateUserOnly: true
         # Set email as an alias
         UsernameAttributes:
           - email
