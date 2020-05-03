@@ -22,8 +22,8 @@ jobs:
       - name: s3 deploy
         run: serverless deploy -v -c infrastructure/uploads/serverless.yml
       - name: dynamo deploy
-        run: serverless deploy -v -c infrastructure/auth/serverless.yml
+        run: serverless deploy -v -c infrastructure/dynamo/serverless.yml
       - name: cognito deploy
-        run: serverless deploy -v -c infrastructure/database/serverless.yml
+        run: serverless deploy -v -c infrastructure/auth/serverless.yml
       - name: api deploy
         run: serverless deploy -v
