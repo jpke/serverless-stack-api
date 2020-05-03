@@ -28,6 +28,15 @@
     {
       "Effect": "Allow",
       "Action": [
+        "cloudfront:CreateInvalidation",
+        "cloudfront:GetInvalidation",
+        "cloudfront:ListInvalidations"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
         "lambda:Get*",
         "lambda:List*",
         "lambda:CreateFunction"
@@ -53,7 +62,17 @@
         "s3:PutBucketPolicy"
       ],
       "Resource": [
-        "arn:aws:s3:::notes-app*serverlessdeploy*"
+        "arn:aws:s3:::notes-app*serverlessdeploy*",
+        "arn:aws:s3:::notes-app-client-*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObjectAcl"
+      ],
+      "Resource": [
+        "arn:aws:s3:::notes-app-client-*"
       ]
     },
     {
